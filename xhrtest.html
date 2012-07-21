@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
+    
+    <script>
+        $.urlParam = function(name){
+            var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            return results[1] || 0;
+        }
+        //var path = 'http://archive.org/details/FrankenberryCountChoculaTevevisionCommercial1971';
+        var path = 'http://archive.org/details/' + $.urlParam('name');
+        
+        $.getJSON(path + '&output=json&callback=?', function(data) {
+        //$.getJSON('test', function(data) {
+        var items = [];
+        var server = data["server"];
+        var dir = data["dir"];
+        var mp4name;
+        var files = data["files"];
+        $.each(files, function(k, v){
+            if(k.search(".mp4") != -1){
+                mp4name = k; 
+            }
+        });
+        var metadata = data["metadata"];
+        var metaItems = [];
+        $.each(metadata, function(k, v){
+            metaItems.push('<li id="' + k + '">' + k + ':' + v + '</li>');
+        });
+        
+        $('<ul/>', {
+          'class': 'my-new-list',
+          html: metaItems.join('')
+        }).appendTo('#metaData');
+        $('<source src="http://' + server + dir + '/' + mp4name  + '">').appendTo('#archiveVideo');
+      }); 
+        
+        
+      // ensure the web page (DOM) has loaded
+      document.addEventListener("DOMContentLoaded", function () {
+
+         // Create a popcorn instance by calling Popcorn("#id-of-my-video")
+         var pop = Popcorn("#ourvideo");
+
+         // add a footnote at 2 seconds, and remove it at 6 seconds
+         pop.footnote({
+           start: 2,
+           end: 6,
+           text: "Pop!",
+           target: "footnotediv"
+         });
+
+         // play the video right away
+         pop.play();
+
+      }, false);
+    </script>
+  </head>
+  <body>
+    <video id = "archiveVideo" controls></video>
+    <h2>Meta Data</h2><br />
+    <div id="metaData"></div>
+    <div id="footnotediv"></div>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+/* Main Styles 
+By: @k88hudson
+-------------------------------------------------- */
+@HEADER_HEIGHT: 120px;
+@MAX_WIDTH: 700px;
+
+@bg: #CCC;
+@bg2: lighten( @bg, 15% );
+@color1: #3C6B5A;
+@color2: #6AA68A;
+@color3: #8EAD8C;
+@color4: #FF1116;
+
+
+html {
+  font-family: "proxima-nova", "Helvetica Neue", sans-serif;
+  background: @bg_whitenoise;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper,
+.wrapper-panel {
+  max-width: @MAX_WIDTH;
+  margin: 40px auto;
+  margin-bottom: 80px;
+}
+
+.main-header {
+  .gradient( "wash", #171D29, #00364C, #E5E4B3);
+  height: @HEADER_HEIGHT;
+}
+
+.panel.logo {
+  padding: 20px;
+  position: absolute;
+  border-radius: 2px;
+  box-shadow: none;
+  .gradient( "vertical", rgba( 255, 255, 255, .25 ) , rgba( 255, 255, 255, .15 ) );
+  .gradiatedBorder( rgba( 255, 255, 255, .7 ),
+    rgba( 255, 255, 255, .3 ),
+    rgba( 255, 255, 255, .1 )
+  );
+
+  &:hover {
+    box-shadow: 0 2px 8px 2px rgba( 0, 0, 0, .4 );
+  }
+
+}
+
+.panel.logo h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1em;
+  text-shadow: 0 -1px 0 #000;
+  letter-spacing: .15em
+}
+
+.panel.logo .nav {
+  display: none;
+}
+
+.panel.logo.pinned {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  background: #FFF;
+}
+
+.panel.logo.pinned h3 {
+  float: left;
+  color: #121212;
+  text-shadow: none;
+  line-height: 40px;
+  margin-right: 10px;
+}
+.panel.logo.pinned .nav {
+  float: left;
+  display: block;
+}
+
+
+.btn-1 {
+  .button( @color1, 10%, #FFF, 3px, 10% );
+}
+
+.btn-2 {
+  .button( @color2, 10%, #FFF, 3px, 10% );
+}
+
+.btn-3 {
+  .button( @color3, 10%, #FFF, 3px, 10% );
+}
+
+.btn-4 {
+  .button( @color4, 10%, #FFF, 3px, 10% );
+}
+
+/*********************************************************
+* Backgrounds
+*/
+.bg-1 {
+  .gradient( "wash", #BA806C, #84698D, #FCD7BA );
+}
+
+.bg-2 {
+  .gradient( "wash", #EDD4A8, #BA8A70, #77B2B2 );
+}
+
+.bg-3 {
+  .gradient( "wash", #171D29, #00364C, #E5E4B3);
+}
+
+/*********************************************************
+* Panel
+*/
+
+.panel-light {
+  font-size: 13px;
+  margin: 40px 0;
+  .clearfix();
+}
+
+/*********************************************************
+* Popcorn
+*/
+#video {
+  width: 100%;
+}
+
+#map {
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+  float: left;
+  margin-right: 20px;
+}
+
