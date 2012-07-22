@@ -7,16 +7,12 @@
 	<title></title>
 
 	<meta name="viewport" content="width=device-width">
-  <style>
-    #map {
-      width: 400px;
-      height: 400px;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <script type="text/javascript" src="//use.typekit.net/apk6hyz.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <script src="popcorn-js/popcorn.js"></script>
+  <script src="popcorn-js/modules/player/popcorn.player.js"></script> 
   <script src="popcorn-js/plugins/googlemap/popcorn.googlemap.js"></script>
 
 </head>
@@ -29,11 +25,7 @@
   <div class="wrapper">
     <div role="main">
       <div class="panel-light">
-        <video id="video" preload data-butter="media" controls>
-          <source src="http://ia600803.us.archive.org/2/items/2012election_414/Factcheckdotorg-ObamaCampaignAdComeAndGo252.mp4">
-          <source src="http://ia600803.us.archive.org/2/items/2012election_414/Factcheckdotorg-ObamaCampaignAdComeAndGo252.ogv">
-          <source src="http://ia600803.us.archive.org/2/items/2012election_414/Factcheckdotorg-ObamaCampaignAdComeAndGo252.webm">
-        </video>
+        <div id="video" preload data-butter="media" controls> </div>
         <h2>About this campaign</h2>
         <div id="map"></div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -51,6 +43,7 @@
   </footer>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/archiveUtil.js"></script>
+   <script src="script.js"></script>
 </body>
 </html>
