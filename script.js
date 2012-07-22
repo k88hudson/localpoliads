@@ -12,8 +12,9 @@
 
         $.each( data, function( index, item ) {
           videoEl = document.createElement( "video" );
-          srcEl = document.creatElement( "src" );
+          srcEl = document.createElement( "source" );
           srcEl.innerHTML = archiveUtil.downloadFile( item.identifier, "ogv" );
+          videoEl.appendChild( srcEl );
           videoContainer.appendChild( videoEl );
         });
       });
