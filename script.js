@@ -16,6 +16,8 @@
           srcEl.src = archiveUtil.downloadFile( item.identifier, "ogv" );
           videoEl.appendChild( srcEl );
           videoContainer.appendChild( videoEl );
+          // Create an element below the video with all the meta data (title, the transcript, date, tv show, and a link to the archive page) below
+          // show on hover
         });
       });
 
