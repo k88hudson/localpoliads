@@ -1,16 +1,19 @@
  document.addEventListener( "DOMContentLoaded", function(){
       
       // Test
-      function log( data ){
+      function log( data ) {
         console.log( data );
-      } 
+      }
   
       archiveUtil.search( "2012elections", function( data ) {
         var videoContainer = document.getElementById( "video" ),
-            videoEl;
+            videoEl,
+            srcEl;
+
         $.each( data, function( index, item ) {
           videoEl = document.createElement( "video" );
-          videoEl.src = archiveUtil.downloadFile( item.identifier, "ogv" );
+          srcEl = document.creatElement( "src" );
+          srcEl.innerHTML = archiveUtil.downloadFile( item.identifier, "ogv" );
           videoContainer.appendChild( videoEl );
         });
       });
