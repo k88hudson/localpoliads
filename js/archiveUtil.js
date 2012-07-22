@@ -18,7 +18,7 @@
     // Set up reference
     global.archiveUtil = _this;
 
-    // ************
+    // ********************************
     // Searches for a query
 
     _this.search = function( query, callback ) {
@@ -36,7 +36,7 @@
         };
       }
 
-      // Archive needs this 
+      // Archive needs this
       query.output = "json";
 
       $.ajax({
@@ -46,6 +46,9 @@
         success: _callback
       });
     };
+
+    // ********************************
+    // Gets detailed info for an identifier, id
 
     _this.details = function( id, callback ) {
       var url = baseUrl + detailsPath + id;
@@ -59,12 +62,20 @@
       });
     };
 
+    // ********************************
+    // Makes the download link given a format
+
     _this.downloadFile = function( id, format ) {
       var url = baseUrl + downloadPath + id + "/format=";
-      if ( format === "ogv" )
+      if ( format === "ogv" ) {
         url += "Ogg+video";
         console.log( url );
+        return url;
+      }
     };
+
+    // ********************************
+    // Searches the TV archive given a query
 
     _this.searchTV =  function( query, callback ) {
       var url = baseUrl + detailsPath + "tv";
@@ -80,13 +91,16 @@
       });
     };
 
+    // ********************************
+    // Gets files of a particular type and returns an array
+
     _this.getFiles = function( files, type ) {
       var result = [];
       type = "." + type + "$"; //regex
       $.each( files, function( fileURL, fileMetaData ) {
         if ( fileURL.search( type ) !== -1 ) {
           result.push( fileURL );
-        } 
+        }
       });
       return result;
     };

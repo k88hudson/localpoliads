@@ -5,7 +5,15 @@
         console.log( data );
       } 
   
-      archiveUtil.search( "camels like stuff", log );
+      archiveUtil.search( "2012elections", function( data ) {
+        var videoContainer = document.getElementById( "video" ),
+            videoEl;
+        $.each( data, function( index, item ) {
+          videoEl = document.createElement( "video" );
+          videoEl.src = archiveUtil.downloadFile( item.identifier, "ogv" );
+          videoContainer.appendChild( videoEl );
+        });
+      });
 
       archiveUtil.search({
         q: "camels"
