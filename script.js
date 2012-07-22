@@ -13,7 +13,7 @@
         $.each( data, function( index, item ) {
           videoEl = document.createElement( "video" );
           srcEl = document.createElement( "source" );
-          srcEl.innerHTML = archiveUtil.downloadFile( item.identifier, "ogv" );
+          srcEl.src = archiveUtil.downloadFile( item.identifier, "ogv" );
           videoEl.appendChild( srcEl );
           videoContainer.appendChild( videoEl );
         });
